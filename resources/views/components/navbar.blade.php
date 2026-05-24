@@ -1,0 +1,59 @@
+<nav class="navbar navbar-expand-lg bg-turchese shadow">
+
+    <div class="container-fluid">
+
+        <a class="navbar-brand" href="#"><img id="logoNavbar" src="/media/logo.png" alt="Logo del sito" class="logo" width="150" height="100"></a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+
+            <ul class="navbar-nav">
+
+                <li class="nav-item nav-custom">
+                    <a class="nav-link active" href="#">Home</a>
+                </li>
+
+                @auth
+                <li class="nav-item dropdown">
+
+                    <a href="#" class="nav-link dropdown-toggle nav-custom" role="botton" data-bs-toggle="dropdoen" aria-expanded="false">
+                        Ciao {{Auth:: user()->name}}
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ route('create.article')}}" class="dropdown-item nav-custom">Crea</a></li>
+                    </ul>
+
+                </li>
+
+                @else
+
+                <li class="nav-item dropdown">
+
+                    <a class="nav-link dropdown-toggle nav-custom" href="#" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Ciao Utente
+                    </a>
+
+                    <ul class="dropdown-menu ">
+
+                        <li><a class="dropdown-item nav-custom" href="{{ route('login')}}">Accedi</a></li>
+                        <li><a class="dropdown-item nav-custom" href="{{ route('register')}}">Registrati</a></li>
+
+                    </ul>
+
+                </li>
+
+                @endauth
+
+            </ul>
+
+        </div>
+
+    </div>
+    
+</nav>
