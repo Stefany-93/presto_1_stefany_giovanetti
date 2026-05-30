@@ -31,7 +31,7 @@ class CreateArticleForm extends Component
             'title' => $this->title,
             'description' => $this->description,
             'price' => $this->price,
-            'category_id' => $this->category, // ← corretto
+            'category_id' => $this->category,
             'user_id' => Auth::id(),
         ]);
 
@@ -39,17 +39,18 @@ class CreateArticleForm extends Component
 
         session()->flash('success', 'Articolo creato correttamente');
     }
+    
+    public function render()
+    {
+        return view('livewire.create-article-form');
+    }
 
     public function cleanForm()
     {
         $this->title = '';
         $this->description = '';
         $this->price = '';
-        $this->category = '';
+        $this->category = null;
     }
-
-    public function render()
-    {
-        return view('livewire.create-article-form');
-    }
+    
 }

@@ -1,4 +1,3 @@
-use Illuminate\Support\Facades\Auth;
 <nav class="navbar navbar-expand-lg bg-turchese shadow">
 
     <div class="container-fluid">
@@ -23,7 +22,7 @@ use Illuminate\Support\Facades\Auth;
 
                 @auth
 
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown nav-custom">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Categorie
                     </a>
@@ -41,15 +40,23 @@ use Illuminate\Support\Facades\Auth;
 
                 <li class="nav-item dropdown">
 
-                    <a href="#" class="nav-link dropdown-toggle nav-custom" role="botton" data-bs-toggle="dropdoen" aria-expanded="false">
+                    <a href="#" class="nav-link dropdown-toggle nav-custom" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Ciao {{Auth:: user()->name}}
                     </a>
 
                     <ul class="dropdown-menu">
-                        <li><a href="{{ route('create.article')}}" class="dropdown-item nav-custom">Crea</a></li>
+                        <li>
+                            <a href="{{ route('create.article')}}" class="dropdown-item nav-custom">Crea</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.querySelector('#form-logout').submit();">Logout</a>
+                        </li>
+                        <form id="form-logout" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
                     </ul>
 
-                </li>
+                </li>                
 
                 @else
 
