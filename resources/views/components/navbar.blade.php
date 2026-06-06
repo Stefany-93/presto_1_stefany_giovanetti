@@ -14,7 +14,7 @@
             <ul class="navbar-nav">
 
                 <li class="nav-item nav-custom">
-                    <a class="nav-link active" href="#">Home</a>
+                    <a class="nav-link active" href="{{ route('homepage') }}">Home</a>
                 </li>
                 <li class="nav-item nav-custom">
                     <a class="nav-link" aria-current="page" href="{{ route('article.index') }}">Tutti gli articoli</a>
