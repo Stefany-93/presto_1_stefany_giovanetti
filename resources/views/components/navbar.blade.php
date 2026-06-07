@@ -38,6 +38,17 @@
                     </ul>
                 </li>
 
+                @if (Auth::user()->is_revisor)
+                    <li class="nav-item nav-custom">
+                        <a class="nav-link btn btn-light btn-sm position-relative w-sm-25" href="{{ route('revisor.index') }}">
+                            Zona Revisore
+                        </a>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            {{ \App\Models\Article::toBeRevisedCount() }}
+                        </span>
+                    </li>
+                @endif
+
                 <li class="nav-item dropdown">
 
                     <a href="#" class="nav-link dropdown-toggle nav-custom" role="button" data-bs-toggle="dropdown" aria-expanded="false">
